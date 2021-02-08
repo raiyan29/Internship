@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Custom Flexbox</title> 
+	  <meta charset="UTF-8">
+	  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+	  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+    <div class="controles">
+    	<form id="Form" name="mainform">
+    		<fieldset>
+    			<legend>Flex Direction</legend>
+    			<label><input type="radio" value="row" name="dir" >Row</label>
+    			<label><input type="radio" value="column" name="dir" checked>Column</label>
+    			<label><input type="radio" value="row-reverse" name="dir" >Row-reverse</label>
+    			<label><input type="radio" value="column-reverse" name="dir" >Column-reverse</label>
+    			</fieldset>
+    			<fieldset>
+    				 <legend>WRAP</legend>
+    				 <label><input type="radio" value="wrap" name="wrap" checked>wrap</label>
+    			<label><input type="radio" value="no-wrap" name="wrap" >no-wrap</label>
+    			<label><input type="radio" value="wrap-reverse" name="wrap" >wrap-reverse</label>
+    			</fieldset>
+    			<fieldset>
+    				<legend>Justify-content</legend>
+    				<label><input type="radio" value="flex-start" name="jc" >flex-start</label>
+    			<label><input type="radio" value="flex-end" name="jc" >flex-end</label>
+    			<label><input type="radio" value="center" name="jc" >center</label>
+    			<label><input type="radio" value="space-between" name="jc" >space-between</label>
+    			<label><input type="radio" value="space-around" name="jc" checked>space-around</label>
+    			
+    			
+
+    			</fieldset>
+    			<fieldset>
+    				<legend>Align-Items</legend>
+    				<label><input type="radio" value="flex-start" name="ai" >flex-start</label>
+    			<label><input type="radio" value="flex-end" name="ai" >flex-end</label>
+    			<label><input type="radio" value="center" name="ai" >center</label>
+    			<label><input type="radio" value="stretch" name="ai" >stretch</label>
+    			<label><input type="radio" value="baseline" name="ai" checked>baseline</label>
+    			
+    			
+
+    			</fieldset>
+    			<fieldset>
+    				<legend>Align-Content</legend>
+    				<label><input type="radio" value="flex-start" name="ac" >flex-start</label>
+    			<label><input type="radio" value="flex-end" name="ac" >flex-end</label>
+    			<label><input type="radio" value="center" name="ac" >center</label>
+    			<label><input type="radio" value="space-between" name="ac" >space-between</label>
+    			<label><input type="radio" value="space-around" name="ac" >space-around</label>
+    			<label><input type="radio" value="stretch" name="ac" checked>stretch</label>
+    			</fieldset>
+
+    			  <fieldset>
+
+       			  <legend>CONTAINERS</legend>
+    			  <input type="number" placeholder="Number of Containers" id="caixa" value="5" min ="1" max= "20" onchange="caixas()"/>
+    			  </fieldset>
+
+    			  <div id="container">
+    			  	<div class ="box">1</div>
+    			  	<div class ="box">2</div>
+    			  	<div class ="box">3</div>
+    			  	<div class ="box">4</div>
+    			  	<div class ="box">5</div>
+
+    </div> 
+
+    <script type="text/javascript">
+    	
+    	const  $ = el => document.querySelector(el);
+
+
+    	function control(){
+    		let dir=$('input[name=dir]:checked').value;
+    		let wrap=$('input[name=wrap]:checked').value;
+    		let jc=$('input[name=jc]:checked').value;
+    		let ai=$('input[name=ai]:checked').value;
+    		let ac=$('input[name=ac]:checked').value;
+
+    		$("#container").style.flexDirection=dir;
+    		$("#container").style.justifyContent=jc;
+    		$("#container").style.flexWrap=wrap;
+    		$("#container").style.alignItems=ai;
+    		$("#container").style.alignContent=ac;
+    	}
+
+    	function addEvent(){
+
+    		window.addEventListener("load",$);
+    		$("#Form").addEventListener("change",control);
+
+    		window.addEventListener("load",addEvent);
+    	}
+    	
+
+
+    </script>
+</body>
+</html>

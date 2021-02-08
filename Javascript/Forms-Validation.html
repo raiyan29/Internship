@@ -28,28 +28,67 @@
             message += "Agreed: " + tchkbox + "<br>";
 
             document.getElementById("tmessage").innerHTML = message;
+           }
 
-
+        function checkformvalidity(){
+      
+         if( document.hello.tname.value == "" ) {
+            alert( "Please provide your name!" );
+            document.hello.Name.focus();
+            return false;
+         }
+         if( document.hello.temail.value == "" ) {
+            alert( "Please provide your Email!" );
         }
+
+                        var emailID = document.hello.temail.value;
+                               atpos = emailID.indexOf("@");
+                                 dotpos = emailID.lastIndexOf(".");
+         
+                          if (atpos < 1 || ( dotpos - atpos < 2 )) {
+                            alert("Please enter valid email ID")
+                            
+                                return false;
+         }
+         else
+
+              return( true );
+        
+                    
+         
+         if( document.hello.tage.value == "" || isNaN( document.hello.tage.value ) ||
+            document.hello.tage.value >=100 ) {
+            
+            alert( "Please provide a correct and Normal age " );
+            return false;
+         }
+        
+         return( true );
+      }
+            
+
+
+        
     </script>
 </head>
 
 <body>
 <p id="tmessage"></p>
 <h1>Form Validations</h1>
-<form action="https://wpfreelancer.com/" method="get">
+<form name="hello" action="https://github.com/raiyan29.github.io" method="post" onsubmit="return(checkformvalidity());">
 
-    Your Name: <input type="text" name="tname" id="txt_name" /> <br><br>
-    Your Email: <input type="text" name="temail" id="txt_email" /> <br><br>
-    Your Age: <input type="text" name="tage" id="txt_age" /> <br><br>
+    Your Name: <input type="text" name="tname" id="txt_name" required /> <br><br>
+    Your Email: <input type="text" name="temail" id="txt_email" required/> <br><br>
+    Your Age: <input type="text" name="tage" id="txt_age" required/> <br><br>
 
-    Male <input id ="radio1" name="gender" type="radio" checked>
-    Female <input id ="radio2" name="gender" type="radio"> <br><br>
+    Male <input id ="radio1" name="gender" type="radio" checked required>
+    Female <input id ="radio2" name="gender" type="radio" required> <br><br>
 
-    <input type="checkbox" id="chkbox" /> Agree to our Terms <br> <br>
+    <input type="checkbox" id="chkbox" required/> Agree to our Terms <br> <br>
 
-    <input type="button" name="submit" value="Submit"
-           onclick="checkFormData();" />
+    <input type="submit" name="submit" value="Submit"
+           onclick="checkformvalidity()" />
+
 
 </form>
 

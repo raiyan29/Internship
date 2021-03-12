@@ -4,7 +4,7 @@
   "description": "Managment of different Students",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js"
   },
   "author": "Raiyan Khan",
   "license": "ISC",
